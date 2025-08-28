@@ -71,7 +71,7 @@
                 &kp LG(LS(LEFT)) &kp LG(D)     &kp LG(LS(RIGHT))
                 &kp LG(LC(LEFT)) &kp LG(LC(D)) &kp LG(LC(RIGHT))
                 // Side (Upper-left, Lower-left, Upper-right, Lower-right)
-                &mkp MB3 &kp BSPC &kp LC(F) &to LAYER_1
+                &mkp MB3 &kp BSPC &kp LC(F) &to DEFAULT_MAC
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
