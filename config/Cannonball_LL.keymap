@@ -66,12 +66,12 @@
                 // Mouse (Left, Right)
                 &mkp MB1 &mkp MB2
                 // Stick (Up, Left, Down, Right)
-                &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
+                &kp LG(UP) &kp LG(LS(TAB)) &kp LG(DOWN) &kp LG(TAB)
                 // Lever (Left-side-left to Right-side-right)
-                &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
-                &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
+                &kp LG(LS(LEFT)) &kp LG(D)     &kp LG(LS(RIGHT))
+                &kp LG(LC(LEFT)) &kp LG(LC(D)) &kp LG(LC(RIGHT))
                 // Side (Upper-left, Lower-left, Upper-right, Lower-right)
-                &kp F1 &kp F2 &kp F3 &kp F4
+                &mkp MB3 &kp BSPC &kp LC(F) &to LAYER_1
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
