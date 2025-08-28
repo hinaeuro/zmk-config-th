@@ -60,11 +60,11 @@
             bindings = <
                 // Order when USB is on top
                 // Keys (Upper-right to Lower-left)
-                &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
-                &mkp MB1   &kp TAB    &kp LS(TAB)  &kp RET
+                &kp LSHIFT &kp LC(Y) &kp LC(C) &kp F3
+                &mkp MB1   &kp LCMD  &mkp MB1  &kp F2
+                &kp LCTRL  &kp LC(Z) &kp LC(P) &kp F1
                 // Mouse (Left, Right)
-                &kp LC(C) &kp LC(V)
+                &mkp MB1 &mkp MB2
                 // Stick (Up, Left, Down, Right)
                 &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
                 // Lever (Left-side-left to Right-side-right)
