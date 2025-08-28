@@ -75,7 +75,7 @@
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
-            sensor-bindings = <&kp TAB LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
+            sensor-bindings = <&kp TAB &kp LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
     	};
 
         // layer 1
@@ -99,7 +99,7 @@
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
-            sensor-bindings = <&kp TAB LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
+            sensor-bindings = <&kp TAB &kp LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
     	};
     };
 };
