@@ -6,7 +6,7 @@
 
 #define LAYER_DEF 0
 #define LAYER_1 1
-#define SETTINGS 2
+#define SCROLL 2
 
 / {
     /* Behaviors */
@@ -122,8 +122,8 @@
                 // Back
                 &bt BT_CLR_ALL &bt BT_CLR
     	    >;
-            sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
-            sensor-bindings = <&kp TAB LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
+            // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
+            sensor-bindings = <&kp TAB &kp LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
     	};
     };
 };
