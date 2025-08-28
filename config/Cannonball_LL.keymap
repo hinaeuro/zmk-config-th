@@ -79,7 +79,7 @@
     	};
 
         // layer 1
-    	LAYER_DEF {
+    	LAYER_1 {
             bindings = <
                 // Order when USB is on top
                 // Keys (Upper-right to Lower-left)
