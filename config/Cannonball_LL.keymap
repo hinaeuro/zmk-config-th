@@ -6,6 +6,7 @@
 
 #define LAYER_DEF 0
 #define LAYER_01 1
+#define SCROLL 2
 
 / {
     /* Behaviors */
@@ -35,18 +36,18 @@
         scroll_move_y: sensor_rotate_msc_for_move_y {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_Y(20)>, <&msc MOVE_Y(-20)>;
+            bindings = <&msc MOVE_Y(25)>, <&msc MOVE_Y(-25)>;
             // tap-ms下限メモ Yの値で可変: Y(15) <81>, Y(20) <65>, Y(25) <49>
-            tap-ms = <65>;
+            tap-ms = <49>;
         };
 
         // エンコーダー：マウススクロール(MOVE_X)
         scroll_move_x: sensor_rotate_msc_for_move_x {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_X(20)>, <&msc MOVE_X(-20)>;
+            bindings = <&msc MOVE_X(25)>, <&msc MOVE_X(-25)>;
             // tap-ms下限メモ Xの値で可変: X(15) <81>, X(20) <65>, X(25) <49>
-            tap-ms = <65>;
+            tap-ms = <49>;
         };
     };
 
@@ -67,14 +68,14 @@
                 // Stick (Up, Left, Down, Right)
                 &msc SCRL_UP &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT
                 // Lever (Left-side-left to Right-side-right)
-                &kp LG(LS(LEFT)) &kp LG(D)     &kp LG(LS(RIGHT))
+                &kp LG(TAB)      &none         &kp LG(LS(TAB))
                 &kp LG(LC(LEFT)) &kp LG(LC(D)) &kp LG(LC(RIGHT))
                 // Side (Upper-left, Lower-left, Upper-right, Lower-right)
                 &mkp MB3 &mo LAYER_01 &none &none
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp RIGHT LEFT>, <&scroll_move_y>, <&scroll_move_x>;
+            sensor-bindings = <&rot_kp LS(TAB) TAB>, <&scroll_move_y>, <&scroll_move_x>;
     	};
 
         // Layer 01
@@ -100,7 +101,7 @@
     	    >;
 
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
-            sensor-bindings = <&rot_kp TAB LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
+            sensor-bindings = <&rot_kp LS(TAB) TAB>, <&scroll_move_y>, <&scroll_move_x>;
     	};
 
         // BT設定、スクロールレイヤー
