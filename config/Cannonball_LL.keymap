@@ -83,9 +83,9 @@
                 // Key
                 // Order when USB is on top
                 // Keys (Upper-right to Lower-left)
-                &kp KP_N3 &kp KP_N6 &kp KP_N9 &KP_EQUAL
-                &kp KP_N2 &kp KP_N5 &kp KP_N8 &KP_N0
-                &kp KP_N1 &kp KP_N4 &kp KP_N7 &KP_DOT
+                &kp KP_N3 &kp KP_N6 &kp KP_N9 &kp KP_EQUAL
+                &kp KP_N2 &kp KP_N5 &kp KP_N8 &kp KP_N0
+                &kp KP_N1 &kp KP_N4 &kp KP_N7 &kp KP_DOT
                 // Mouse (Left, Right)
                 &mkp MB1 &mkp MB2
                 // Stick (Up, Left, Down, Right)
