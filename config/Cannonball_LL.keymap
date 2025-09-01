@@ -4,6 +4,9 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/input_transform.h>
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+#include <dt-bindings/zmk/pointing.h>
+
 #define LAYER_DEF 0
 #define LAYER_01 1
 #define SCROLL 2
@@ -13,7 +16,7 @@
     // スクロール設定
     msc {
         acceleration-exponent = <0>;      // 0
-        time-to-max-speed-ms = <200>;     // 300
+        time-to-max-speed-ms = <0>;       // 300
         delay-ms = <5>;                   // 10
     };
     behaviors {
