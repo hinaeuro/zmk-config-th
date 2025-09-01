@@ -14,7 +14,7 @@
     cannonball_physical_layout: cannonball_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Default";
-        kscan = <&kscan0>;
+        kscan = <&kscan0>, <&joy_click_kscan>;
         transform = <&default_transform>;
 	    keys //                  w   h   x   y rot rx ry
         // Key
@@ -53,6 +53,8 @@
         // Back
 	    , <&key_physical_attrs 100 100 675 550   0  0  0>
 	    , <&key_physical_attrs 100 100 675 650   0  0  0>
+        // Joystick Push
+        , <&key_physical_attrs 100 100 300 200   0  0  0>
 	    ;
     };
 
@@ -107,6 +109,14 @@
             , <&shifter 14 GPIO_ACTIVE_HIGH>
             ;
     };
+
+    // Joystick Push
+	joy_click_kscan: kscan_joy_click {
+		compatible = "zmk,kscan-gpio";
+		input-gpios = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		debounce-press-ms = <5>;
+		debounce-release-ms = <5>;
+	};
 
     // エンコーダー設定
     head_encoder: encoder_head {
@@ -231,5 +241,17 @@
           &zip_xy_to_scroll_mapper
         >;
     };
+  };
+};
+
+// LED
+/ {
+  chosen { zmk,underglow = &led_strip; }
+  led_strip: ws2812 {
+    compatible = "worldsemi,ws2812";
+    label = "WS2812";
+    gpio = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+    chain-length = <14>;
+    // color-mapping = <LED_COLOR_ID_GRB>;
   };
 };
