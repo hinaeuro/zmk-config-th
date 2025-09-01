@@ -4,9 +4,8 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/input_transform.h>
 
-#define DEFAULT_WIN 0
-#define DEFAULT_MAC 1
-#define SCROLL 2
+#define LAYER_DEF 0
+#define LAYER_01 1
 
 / {
     /* Behaviors */
@@ -55,47 +54,47 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // WINDOWS用
-    	DEFAULT_WIN {
+        // Base Layer
+    	LAYER_DEF {
             bindings = <
                 // Order when USB is on top
                 // Keys (Upper-right to Lower-left)
-                &kp LSHIFT &kp LC(Y) &kp LC(C) &kp F3
-                &mkp MB1   &kp LCMD  &mkp MB1  &kp F2
-                &kp LCTRL  &kp LC(Z) &kp LC(P) &kp F1
+                &kp LC(P) &kp LC(Y) &kp LC(C) &none
+                &mkp MB3  &kp LCMD  &mkp MB3  &none
+                &kp LC(C) &kp LC(Z) &kp LC(P) &none
                 // Mouse (Left, Right)
                 &mkp MB1 &mkp MB2
                 // Stick (Up, Left, Down, Right)
-                &kp LG(UP) &kp LG(LS(TAB)) &kp LG(DOWN) &kp LG(TAB)
+                &msc SCRL_UP &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT
                 // Lever (Left-side-left to Right-side-right)
                 &kp LG(LS(LEFT)) &kp LG(D)     &kp LG(LS(RIGHT))
                 &kp LG(LC(LEFT)) &kp LG(LC(D)) &kp LG(LC(RIGHT))
                 // Side (Upper-left, Lower-left, Upper-right, Lower-right)
-                &mkp MB3 &kp BSPC &kp LC(F) &to DEFAULT_MAC
+                &mkp MB3 &mo LAYER_01 &none &none
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
-            sensor-bindings = <&rot_kp TAB LS(TAB)>, <&scroll_move_y>, <&scroll_move_x>;
+            sensor-bindings = <&rot_kp RIGHT LEFT>, <&scroll_move_y>, <&scroll_move_x>;
     	};
 
-        // MacOS用
-    	DEFAULT_MAC {
+        // Layer 01
+    	LAYER_01 {
             bindings = <
                 // Key
                 // Order when USB is on top
                 // Keys (Upper-right to Lower-left)
-                &kp LSHIFT &kp LC(Y) &kp LC(C) &kp F3
-                &mkp MB1   &kp LCMD  &mkp MB1  &kp F2
-                &kp LCTRL  &kp LC(Z) &kp LC(P) &kp F1
+                &kp KP_N3 &kp KP_N6 &kp KP_N9 &KP_EQUAL
+                &kp KP_N2 &kp KP_N5 &kp KP_N8 &KP_N0
+                &kp KP_N1 &kp KP_N4 &kp KP_N7 &KP_DOT
                 // Mouse (Left, Right)
                 &mkp MB1 &mkp MB2
                 // Stick (Up, Left, Down, Right)
                 &kp LG(UP) &kp LG(LS(TAB)) &kp LG(DOWN) &kp LG(TAB)
                 // Lever (Left-side-left to Right-side-right)
-                &kp LG(LS(LEFT)) &kp LG(D)     &kp LG(LS(RIGHT))
-                &kp LG(LC(LEFT)) &kp LG(LC(D)) &kp LG(LC(RIGHT))
+                &none &none &none
+                &none &none &none
                 // Side (Upper-left, Lower-left, Upper-right, Lower-right)
-                &mkp MB3 &kp BSPC &kp LC(F) &to DEFAULT_WIN
+                &mkp MB3 &mo LAYER_01 &none &none
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
     	    >;
