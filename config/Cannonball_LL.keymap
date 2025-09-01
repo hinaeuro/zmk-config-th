@@ -52,6 +52,25 @@
             // tap-ms下限メモ Xの値で可変: X(15) <81>, X(20) <65>, X(25) <49>
             tap-ms = <49>;
         };
+
+       // ジョイスティック押し込みの排他処理
+       joy_push_guard: behavior_hold_tap {
+          compatible = "zmk,behavior-hold-tap";
+          label = "JOY_PUSH_GUARD";
+    
+          // タップ優先。素早く“単独”で押した時だけタップが出る
+          flavor = "tap-preferred";
+    
+          // ここがキモ：他キーが押されたら“ホールド”判定へ
+          hold-trigger-on-other-key-press;
+    
+          // タップ判定の猶予（好みで調整。150〜250msあたりから）
+          tapping-term-ms = <200>;
+          quick-tap-ms = <0>;
+    
+          // bindings = <hold時の動作>, <tap時の動作>
+          bindings = <&none>, <&mkp MB3>;
+        };
     };
 
     /* キーマップ */
@@ -77,6 +96,8 @@
                 &mkp MB3 &to LAYER_01 &none &none
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
+                // Joystick Push
+                &joy_push_guard
     	    >;
             sensor-bindings = <&rot_kp LS(TAB) TAB>, <&scroll_move_y>, <&scroll_move_x>;
     	};
@@ -101,6 +122,8 @@
                 &mkp MB3 &to LAYER_DEF &none &kp KP_N0
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
+                // Joystick Push
+                &joy_push_guard
     	    >;
 
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
@@ -125,6 +148,8 @@
                 &none &none &none &none
                 // Back
                 &bt BT_CLR_ALL &bt BT_CLR
+                // Joystick Push
+                &none
     	    >;
             sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
     	};
