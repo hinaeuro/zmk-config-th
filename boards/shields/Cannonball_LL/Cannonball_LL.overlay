@@ -252,6 +252,6 @@
     label = "WS2812";
     gpio = <&gpio0 16 GPIO_ACTIVE_HIGH>;
     chain-length = <14>;
-    // color-mapping = <LED_COLOR_ID_GRB>;
+    color-mapping = <LED_COLOR_ID_GRB>;
   };
 };
