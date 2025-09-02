@@ -58,7 +58,7 @@
           #binding-cells = <0>;
     
           // [TAP]=中ボタン, [HOLD]=無効化
-          bindings = <&mkp MB3 &none>;
+          bindings = <&none &mkp MB3>;
     
           // センター単独→Tap、方向と同時→Hold側に倒れる
           tapping-term-ms = <180>;
