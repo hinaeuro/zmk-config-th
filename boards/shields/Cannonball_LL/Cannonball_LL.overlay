@@ -14,7 +14,7 @@
     cannonball_physical_layout: cannonball_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Default";
-        kscan = <&kscan0>, <&joy_click_kscan>;
+        kscan = <&kscan0>;
         transform = <&default_transform>;
 	    keys //                  w   h   x   y rot rx ry
         // Key
