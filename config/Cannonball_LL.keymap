@@ -52,22 +52,22 @@
         };
 
        // ジョイスティック押し込みの排他処理
-       joy_push_guard: behavior_hold_tap {
+       joy_center_gate: behavior_joy_center_gate {
           compatible = "zmk,behavior-hold-tap";
-          label = "JOY_PUSH_GUARD";
+          label = "JOY_CENTER_GATE";
+          #binding-cells = <0>;
     
-          // タップ優先。素早く“単独”で押した時だけタップが出る
+          // [TAP]=中ボタン, [HOLD]=無効化
+          bindings = <&mkp MB3 &none>;
+    
+          // センター単独→Tap、方向と同時→Hold側に倒れる
+          tapping-term-ms = <180>;
+          quick-tap-ms    = <180>;
           flavor = "tap-preferred";
     
-          // ここがキモ：他キーが押されたら“ホールド”判定へ
-          hold-trigger-on-other-key-press;
-    
-          // タップ判定の猶予（好みで調整。150〜250msあたりから）
-          tapping-term-ms = <200>;
-          quick-tap-ms = <0>;
-    
-          // bindings = <hold時の動作>, <tap時の動作>
-          bindings = <&none>, <&mkp MB3>;
+          // Stick の Up/Left/Down/Right の "key position"
+          // まずは仮で <14 15 16 17>（ズレたら後で直す）
+          hold-trigger-key-positions = <14 15 16 17>;
         };
     };
 
@@ -96,7 +96,7 @@
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
                 // Joystick Push
-                &joy_push_guard
+                &joy_center_gate
     	    >;
             sensor-bindings = <&rot_kp LS(TAB) TAB>, <&scroll_move_y>, <&scroll_move_x>;
     	};
@@ -122,7 +122,7 @@
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
                 // Joystick Push
-                &joy_push_guard
+                &joy_center_gate
     	    >;
 
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
