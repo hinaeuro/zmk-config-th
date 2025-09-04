@@ -10,6 +10,10 @@
         zmk,physical-layout = &cannonball_physical_layout;
     };
 
+	chosen {
+        zmk,underglow = &led_strip;
+    };
+
     // 物理レイアウト設定
     cannonball_physical_layout: cannonball_physical_layout {
         compatible = "zmk,physical-layout";
