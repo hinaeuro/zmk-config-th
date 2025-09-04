@@ -54,7 +54,7 @@
     /* キーマップ */
     keymap {
         compatible = "zmk,keymap";
-        kscan = <&kscan0 &joy_click_kscan>;
+        kscan = <&kscan0>;
 
         // Base Layer
     	LAYER_DEF {
