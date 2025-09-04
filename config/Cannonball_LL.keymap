@@ -51,26 +51,6 @@
             tap-ms = <49>;
         };
 
-       // ジョイスティック押し込みの排他処理
-       joy_center_gate: behavior_joy_center_gate {
-          compatible = "zmk,behavior-hold-tap";
-          label = "JOY_CENTER_GATE";
-          #binding-cells = <2>;
-    
-          // [TAP]=中ボタン, [HOLD]=無効化
-          bindings = <&none>, <&mkp>;
-    
-          // センター単独→Tap、方向と同時→Hold側に倒れる
-          tapping-term-ms = <180>;
-          quick-tap-ms    = <180>;
-          flavor = "tap-preferred";
-    
-          // Stick の Up/Left/Down/Right の "key position"
-          // まずは仮で <14 15 16 17>（ズレたら後で直す）
-          hold-trigger-key-positions = <14 15 16 17>;
-        };
-    };
-
     /* キーマップ */
     keymap {
         compatible = "zmk,keymap";
@@ -95,8 +75,6 @@
                 &mkp MB3 &to LAYER_01 &none &none
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
-                // Joystick Push
-                &joy_center_gate 0 MB3
     	    >;
             sensor-bindings = <&rot_kp LS(TAB) TAB>, <&scroll_move_y>, <&scroll_move_x>;
     	};
@@ -121,8 +99,6 @@
                 &mkp MB3 &to LAYER_DEF &none &kp KP_N0
                 // Back (Upper, Lower)
                 &bt BT_SEL 0 &bt BT_SEL 1
-                // Joystick Push
-                &joy_center_gate 0 MB3
     	    >;
 
             // Encoder ( Upper CCW CW, Middle Left(UP) Right(Down), Left(UP) Right(Down))
@@ -147,8 +123,6 @@
                 &none &none &none &none
                 // Back
                 &bt BT_CLR_ALL &bt BT_CLR
-                // Joystick Push
-                &none
     	    >;
             sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
     	};
