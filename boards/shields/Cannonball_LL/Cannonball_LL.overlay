@@ -282,3 +282,10 @@
     };
   };
 };
+
+/ {
+    zmk_ext_power_generic: zmk_ext_power_generic {
+        compatible = "some,compatible-type";
+        // 必要なプロパティをここに追加
+    };
+};
